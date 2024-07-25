@@ -1,8 +1,17 @@
 import hashlib
 import maskpass
+import subprocess
 
-logpath = 'C:\\Users\\avilu\\PycharmProjects\\PassManager\\logins'
-passpath = 'C:\\Users\\avilu\\PycharmProjects\\PassManager\\pass\\passwords-'
+result = subprocess.run(['whoami'], capture_output=True, text=True)
+whoami = result.stdout.strip()
+if '\\' in whoami:
+    whoami = whoami.split('\\')
+    whoami = whoami[1]
+else:
+    pass
+
+logpath = 'C:\\Users\\' + whoami + '\\PycharmProjects\\PassManager\\logins'
+passpath = 'C:\\Users\\' + whoami + '\\PycharmProjects\\PassManager\\pass\\passwords-'
 
 def hash_string(s):                                              #hash encryption
     return hashlib.sha256(s.encode()).hexdigest()
