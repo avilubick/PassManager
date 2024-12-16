@@ -90,10 +90,10 @@ def signinthing(passpath):
             entry = "*" + user_hash + '*' + pass_hash
             with open(logpath, 'a') as f:
                 f.write(entry)
-            with open(passpath + user_hash, 'a') as f:          #prob bc not always used but idk(figure out lated)(possibly no workie :()
+            with open(passpath + user_hash, 'a') as f:          #prob bc not always used but idk(figure out lated)(possibly doesent work)
                 pass
             with open(logpath, 'r') as f:
-                position = f.read().split("*")                  #prob bc not always used but idk(figure out later)
+                position = f.read().split("*")
             signinthing(passpath)
             break
         elif question == "1":                                   #sign in
@@ -106,5 +106,4 @@ def signinthing(passpath):
 
 signinthing(passpath)
 
-#to do: rego over code logic, encrypt users user'/pass', interface?, finish making comments explaining code(dont overdo), figure out issue with making users and pass', add delays
 
